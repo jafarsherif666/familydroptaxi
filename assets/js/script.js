@@ -320,9 +320,9 @@ https://familydroptaxi.in
 }
 document.getElementById('hero-form').addEventListener('submit', function (event) {   
     event.preventDefault(); // Prevent form submission
-    let text = `Due to heavy one-way traffic, fares are adjusted as follows: 
+    let text = `Due to heavy traffic and demand, fares are adjusted as follows: 
     * Sedan (Etios, Dzire): Rs. 17/km
-    * SUV (Marazzo, Ertiga): Rs. 23/km
+    * SUV (Marazzo, Ertiga): Rs. 22/km
     * Innova Crysta: Rs. 26/km
 
     Proceed to book your cab?`;
