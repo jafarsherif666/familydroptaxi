@@ -304,7 +304,7 @@ https://familydroptaxi.in
         // Construct the URL for the Telegram API request
         const url = `https://api.telegram.org/bot6577358669:AAHaR6p_uZ0sGDRwuxS0YKqyg-BVSpZPcZI/sendMessage?chat_id=-4231118038&text=${urlEncodedMessage}&&disable_web_page_preview=true&parse_mode=Markdown`;
         console.log(url);
-        /*fetch(url)
+        fetch(url)
         .then(response => response.json())
         .then(data => {
             if (data.ok) {
@@ -315,7 +315,7 @@ https://familydroptaxi.in
         })
         .catch(error => {
             console.error('Error:', error);
-        });*/
+        });
            
 }
 document.getElementById('hero-form').addEventListener('submit', function (event) {   
