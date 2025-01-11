@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="title" content="Family Cab Drop Booking in Tamil Nadu - Reliable & Affordable price">
+  <meta name="description" content="Book cab drop services across Tamil nadu. Enjoy safe, affordable and convenient travel for one way or round trip. 24/7 service with a wide range of vehicles">
+  <meta name="keywords" content="Family drop taxi, Tamil nadu cab booking, drop taxi services, drop taxi Tamil Nadu, affortable cab booking, safe travel, chennai drop taxi, family taxi">
+  <meta name="author" content="CabDropTN">
+  <meta name="geo.region" content="IN-TN">
+  <meta name="geo.placeName" content="Chennai">
+  <meta name="geo.position" content="13.082680;80.270718">
+  <meta name="ICBM" content="13.082680;80.270718">
+  <meta name="og:title" content="Family Cab Drop Booking in Tamil Nadu - Reliable & Affordable price">
+  <meta name="og:description" content="Book cab drop services across Tamil nadu. Enjoy safe, affordable and convenient travel for one way or round trip. 24/7 service with a wide range of vehicles">
+  <meta name="og:url" content="https://www.familydroptaxi.in">
+  <meta name="og:type" content="website">
+  <meta name="og:image" content="./assets/images/familydroptaxi-logo.png">
+  <meta name="twitter:title" content="Family Cab Drop Booking in Tamil Nadu - Reliable & Affordable price">
+  <meta name="twitter:description" content="Book cab drop services across Tamil nadu. Enjoy safe, affordable and convenient travel for one way or round trip. 24/7 service with a wide range of vehicles">
+  <meta name="twitter:card" content="./assets/images/familydroptaxi-logo.png">
+  <meta name="twitter:image" content="./assets/images/familydroptaxi-logo.png">
+  <title>Family Drop Taxi - Affordable drop taxi in chennai</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- favicon -->
+  <link rel="shortcut icon" href="./favicon.png" type="image/png">
+
+  <!-- custom css link -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- google font link -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Open+Sans&display=swap" rel="stylesheet">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"> </script>
+</head>
+
+<body>
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <div class="overlay" data-overlay></div>
+      <img src="./assets/images/familydroptaxi-home-logo.png" alt="Family drop taxi logo" class="responsive-logo">
+
+      <!-- <a href="#" class="logo">
+          <h2>Family Drop Taxi</h2>  
+
+      </a>-->
+
+      <nav class="navbar" data-navbar>
+        <ul class="navbar-list">
+
+          <li>
+            <a href="#home" class="navbar-link" data-nav-link>Home</a>
+          </li>
+
+          <li>
+            <a href="#featured-car" class="navbar-link" data-nav-link>Explore</a>
+          </li>
+
+          <li>
+            <a href="#about-us" class="navbar-link" data-nav-link>About us</a>
+          </li>
+
+          <li>
+            <a href="#contact-us" class="navbar-link" data-nav-link>Contact us</a>
+          </li>
+
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+
+        <div class="header-contact">
+          <a href="tel:8668180621" class="contact-link">+91 86681 80621</a>
+
+          <span class="contact-time">24-Hour Service, Every Day</span>
+        </div>
+
+        <a href="#featured-car" class="btn" aria-labelledby="aria-label-txt">
+          <ion-icon name="car-outline"></ion-icon>
+
+          <span id="aria-label-txt">Explore cars</span>
+        </a>
+
+        <!--        <a href="#" class="btn user-btn" aria-label="Profile">
+          <ion-icon name="person-outline"></ion-icon>
+        </a>
+-->
+        <button class="nav-toggle-btn" data-nav-toggle-btn aria-label="Toggle Menu">
+          <span class="one"></span>
+          <span class="two"></span>
+          <span class="three"></span>
+        </button>
+
+      </div>
+
+    </div>
+  </header>
+
+
+
+
+
+  <main>
+    <article>
+
+      <!-- 
+        - #HERO
+      -->
+
+      <section class="section hero" id="home">
+        <div class="container">
+
+          <div class="hero-content">
+            <h2 class="h1 hero-title">The easy way to Book your Cab</h2>
+
+            <p class="hero-text">
+              Book affordable drop taxi services
+            </p>
+          </div>
+
+          <div class="hero-banner"></div>
+
+          <form action="" class="hero-form" id="hero-form">
+
+            <div class="input-wrapper">
+              <label for="input-1" class="input-label">Enter Name</label>
+
+              <input type="text" pattern="^[a-zA-Z\s]+$" required name="customer_name" id="input-1" class="input-field"
+                placeholder="Your Full Name" title="Full name must contain only letters and spaces" autocomplete="off">
+            </div>
+
+            <div class="input-wrapper">
+              <label for="input-2" class="input-label">Mobile Number</label>
+
+              <input type="number" name="customer_number" id="input-2" class="input-field" placeholder="Mobile Number"
+                maxlength='10' minlength='10' pattern="^\d{10}$"
+                oninput="javascript: this.value = this.value.replace(/[^0-9]/g, '').slice(0, this.maxLength);" required
+                autocomplete="off">
+            </div>
+
+            <div class="input-wrapper">
+              <label for="input-3" class="input-label">Pickup Point</label>
+              <input type="text" name="customer_pickup_loc" id="pickup-point" class="input-field t-dropdown-input"
+                placeholder="Add Pickup Point" required autocomplete="off">
+              <ul id="pickup-dropdown-list" class="t-dropdown-list autocomplete"></ul>
+            </div>
+            <div class="input-wrapper">
+              <label for="input-4" class="input-label">Drop Point</label>
+
+              <input type="text" name="customer_drop_loc" id="drop-point" class="input-field t-dropdown-input"
+                placeholder="Add Drop Point" required autocomplete="off">
+              <ul id="drop-dropdown-list" class="t-dropdown-list autocomplete"></ul>
+            </div>
+            <div class="input-wrapper">
+              <label for="input-5" class="input-label">Pickup Date</label>
+
+              <input type="date" name="customer_pickup_date" id="input-5" class="input-field"
+                placeholder="Add Pickup Address" required
+                onfocus="this.min=new Date().toISOString().split('T')[0]; this.max=new Date(new Date().setMonth(new Date().getMonth() + 6)).toISOString().split('T')[0]">
+            </div>
+            <div class="input-wrapper">
+              <label for="input-6" class="input-label">Pickup Time</label>
+
+              <input type="time" name="customer_pickup_time" id="input-6" class="input-field"
+                placeholder="Add Drop Address" step="60" required>
+            </div>
+            <div class="input-wrapper">
+              <label for="input-7" class="input-label">Cab Type</label>
+              <input type="text" name="cab_type" id="input-7" class="input-field t-dropdown-input cartype"
+                placeholder="Select cab type" required autocomplete="off">
+              <!--<span class="t-select-btn">
+                  </span>-->
+              <ul id="t-dropdown-list" class="t-dropdown-list">
+                <li class="t-dropdown-item">Sedan(Etios, Dzire etc) - Rs.14/km</li>
+                <li class="t-dropdown-item">SUV(Marazzo, Ertiga etc) - Rs.19/km</li>
+                <li class="t-dropdown-item">Innova Crysta(Rs.22/km)</li>
+              </ul>
+
+            </div>
+            <div class="input-wrapper">
+              <label for="input-7" class="input-label">Trip Type</label>
+              <div class="inline-elements">
+                <span>Round trip</span>
+                <input type="checkbox" style="width:10%" id="round-trip" name="round_trip">
+              </div>
+            </div>
+            <p class="appr-fare input-label hidden" id="appr-fare">
+                <b>Total Distance</b> : <span class="inline" id='total_km'></span><br>
+                <b>Charges per KM</b> : <span class="inline" id='charges_km'></span><br>
+                <span class="inline" id='minimum_distance'></span>
+                <b>Driver Betta</b> : <span class="inline" id='driver_betta'></span> <br>
+                <b>Approx. Total Fare</b> : <span class="inline" id='appro_fare'></span></p>
+            <button type="submit" class="btn submit-btn">Submit</button>
+          </form>
+          <div class="input-wrapper-success">
+            <span>
+              <ion-icon name="checkmark-circle-outline" class="inline-blk"></ion-icon> <span class="inline-blk">A New
+                Drop Taxi booking has been submitted:</span><br>
+              <p class="blk">
+                <b>Customer Name :</b> <span id="customer_name" class="inline-blk"></span><br>
+                <b>Contact Number :</b> <span id="customer_number" class="inline-blk"></span><br>
+                <b>Cab Type :</b> <span id="cab_type" class="inline-blk"></span><br>
+                <b>Pickup Location :</b> <span id="customer_pickup_loc" class="inline-blk"></span><br>
+                <b>Drop-off Location :</b> <span id="customer_drop_loc" class="inline-blk"></span><br>
+                <b>Round Trip :</b> <span id="round_trip" class="inline-blk"></span><br>
+                <b>Pickup Date/Time :</b> <span id="customer_pickup_time" class="inline-blk"></span><br>
+                <b>Total Distance :</b> <span id="distance" class="inline-blk"></span><br>
+                <b>Total Fare :</b> <span id="fare" class="inline-blk"></span><br>
+              </p>
+            </span>
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #FEATURED CAR
+      -->
+
+      <section class="section featured-car">
+        <div class="container">
+
+          <div class="title-wrapper">
+            <h2 class="h2 section-title" id="featured-car">Featured cars</h2>
+
+            <a href="#" class="featured-car-link">
+              <span>Book Cab</span>
+
+              <ion-icon name="arrow-forward-outline"></ion-icon>
+            </a>
+          </div>
+
+          <ul class="featured-car-list">
+            <li>
+              <div class="featured-car-card">
+
+                <figure class="card-banner">
+                  <img src="./assets/images/swift-etios.png" alt="Swift Ethios image" loading="lazy" width="440"
+                    height="300" class="w-100">
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="card-title-wrapper">
+                    <h3 class="h3 card-title">
+                      <a href="#">Sedan(Etios, Dzire etc)</a>
+                    </h3>
+
+                    <data class="year" value="4 people">
+                      <ul class="">
+                        <li class="card-list-item">
+                          <ion-icon name="people-outline"></ion-icon>
+                          <span class="card-item-text">4+1</span>
+                        </li>
+                      </ul>
+                    </data>
+                  </div>
+
+                  <div class="card-price-wrapper">
+
+                    <p class="card-price">
+                      <strong> ₹14</strong> / km
+                    </p>
+
+                    <button class="btn fav-btn" aria-label="Add to favourite list">
+                      <ion-icon name="heart-outline"></ion-icon>
+                    </button>
+
+                    <button class="btn" onClick='populate("Sedan(Etios, Dzire etc) - Rs.14/km)")'>Book now</button>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="featured-car-card">
+
+                <figure class="card-banner" style="background: white">
+                  <img src="./assets/images/marazzo-ertiga.webp" alt="Marazzo Ertiga image" loading="lazy" width="440" height="300"
+                    style="height: 95%" class="w-100">
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="card-title-wrapper">
+                    <h3 class="h3 card-title">
+                      <a href="#">SUV(Marazzo, Ertiga etc)</a>
+                    </h3>
+
+                    <data class="year" value="4 people">
+                      <ul class="">
+                        <li class="card-list-item">
+                          <ion-icon name="people-outline"></ion-icon>
+                          <span class="card-item-text">6+1</span>
+                        </li>
+                      </ul>
+                    </data>
+                  </div>
+
+
+                  <div class="card-price-wrapper">
+
+                    <p class="card-price">
+                      <strong> ₹19</strong> / km
+                    </p>
+
+                    <button class="btn fav-btn" aria-label="Add to favourite list">
+                      <ion-icon name="heart-outline"></ion-icon>
+                    </button>
+
+                    <button class="btn" onClick='populate("SUV(Marazzo, Ertiga etc) - Rs.19/km")'>Book now</button>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+            <li>
+              <div class="featured-car-card">
+
+                <figure class="card-banner">
+                  <img src="./assets/images/innova-crysta.webp" alt="Innova Crysta image" loading="lazy" width="440"
+                    height="300" class="w-100">
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="card-title-wrapper">
+                    <h3 class="h3 card-title">
+                      <a href="#">Innova Crysta</a>
+                    </h3>
+
+                    <data class="year" value="4 people">
+                      <ul class="">
+                        <li class="card-list-item">
+                          <ion-icon name="people-outline"></ion-icon>
+                          <span class="card-item-text">6+1</span>
+                        </li>
+                      </ul>
+                    </data>
+                  </div>
+
+                  <!--                  <ul class="card-list">
+
+                    <li class="card-list-item">
+                      <ion-icon name="people-outline"></ion-icon>
+
+                      <span class="card-item-text">4 People</span>
+                    </li>
+
+                    <li class="card-list-item">
+                      <ion-icon name="flash-outline"></ion-icon>
+
+                      <span class="card-item-text">Petrol</span>
+                    </li>
+
+                    <li class="card-list-item">
+                      <ion-icon name="speedometer-outline"></ion-icon>
+
+                      <span class="card-item-text">7.7km / 1-litre</span>
+                    </li>
+
+                    <li class="card-list-item">
+                      <ion-icon name="hardware-chip-outline"></ion-icon>
+
+                      <span class="card-item-text">Automatic</span>
+                    </li>
+
+                  </ul>
+-->
+                  <div class="card-price-wrapper">
+
+                    <p class="card-price">
+                      <strong> ₹22</strong> / km
+                    </p>
+
+                    <button class="btn fav-btn" aria-label="Add to favourite list">
+                      <ion-icon name="heart-outline"></ion-icon>
+                    </button>
+
+                    <button class="btn" onClick='populate("Innova Crysta(Rs.22/km)")'>Book now</button>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #GET START
+      -->
+
+      <section class="section get-start">
+        <div class="container">
+
+          <h2 class="h2 section-title">Get started with 4 simple steps</h2>
+
+          <ul class="get-start-list">
+
+            <li>
+              <div class="get-start-card">
+
+                <div class="card-icon icon-1">
+                  <ion-icon name="time-outline"></ion-icon>
+                </div>
+
+                <h4 class="card-title">Pickup Time of your choice</h4>
+
+                <p class="card-text">
+                  Choose your preferred pickup time for a convenient ride.
+                </p>
+
+                <a href="#" class="card-link">Get started</a>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="get-start-card">
+
+                <div class="card-icon icon-2">
+                  <ion-icon name="home-outline"></ion-icon>
+                </div>
+
+                <h4 class="card-title">Door step pickup drop</h4>
+
+                <p class="card-text">
+                  Experience hassle-free doorstep pickup and drop-off service.
+                </p>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="get-start-card">
+
+                <div class="card-icon icon-3">
+                  <ion-icon name="map-outline"></ion-icon>
+                </div>
+
+                <h4 class="card-title">Service across major cities</h4>
+
+                <p class="card-text">
+                  Travel seamlessly across the region with our extensive services.
+                </p>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="get-start-card">
+
+                <div class="card-icon icon-4">
+                  <ion-icon name="airplane-outline"></ion-icon>
+                </div>
+
+                <h4 class="card-title">Airport pick-up & drop</h4>
+
+                <p class="card-text">
+                  Convenient airport pick-up and drop, ensuring timely arrivals.
+                </p>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+      <section class="section get-start">
+        <div class="container">
+
+          <h2 class="h2 section-title" id="booking-terms">Booking Terms</h2>
+          <ul class="">
+
+            <li>
+              <div class="get-start-card">
+
+
+
+                <h3 class="card-title">Driver Betta</h3>
+
+                <p class="card-text">
+                  Driver Betta - Rs. 300.</p>
+
+                <p class="card-text">
+                  Driver Betta above 400 km - Rs. 500</p>
+                <br><br>
+                <h3 class="card-title">Minimum Km</h3>
+
+                <p class="card-text">
+
+                  One way drop Trips - Minimum 130 KM</p>
+                <p class="card-text">
+
+                  Round Trips - Minimum 250 KM per day.
+                </p><br><br>
+                <h3 class="card-title">Additional Charges</h3>
+
+                <p class="card-text">
+
+                  Additional charges - Toll Fees, Inter-State Permit, Airport charges Parking Charges (if any) are
+                  extra.
+                </p>
+                <p class="card-text">
+                  1 day meant 1 Calender day (from midnight 12 AM to Next Midnight 12 AM)
+                </p>
+
+
+
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="section get-start">
+        <div class="container">
+
+          <h2 class="h2 section-title" id="about-us">About us</h2>
+          <ul class="">
+
+            <li>
+              <div class="get-start-card">
+
+
+
+                <h3 class="card-title">Welcome to Family Drop Taxi!</h3>
+
+                <p class="card-text">
+                  At Family Drop Taxi, we are dedicated to providing reliable and affordable transportation solutions
+                  for your travel needs. With a commitment to exceptional customer service, our mission is to make every
+                  journey comfortable, safe, and convenient.
+
+                </p>
+                <br>
+                <p class="card-text">
+                  Founded by a team of passionate drivers, we understand the importance of seamless travel experiences.
+                  Our fleet consists of well-maintained vehicles, ensuring that you arrive at your destination on time
+                  and in style. Whether you're booking a one-way trip or a round trip, we offer a range of cab types to
+                  suit your preferences and budget.
+
+                </p><br>
+
+                <p class="card-text">
+
+                  Our drivers are professional, experienced, and familiar with the local area, making them the perfect
+                  companions for your journey. We pride ourselves on punctuality and strive to exceed your expectations
+                  with every ride.
+
+                </p><br>
+                <p class="card-text">
+
+                  Join us on your next adventure, and let Family Drop Taxi be your trusted partner in transportation!
+
+                </p>
+
+
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="section get-start">
+        <div class="container">
+
+          <h2 class="h2 section-title" id="contact-us">Contact us</h2>
+          <ul class="">
+
+            <li>
+              <div class="get-start-card">
+
+
+
+                <h3 class="card-title">Get in Touch!</h3>
+
+                <p class="card-text">
+                  We would love to hear from you! Whether you have questions, feedback, or need assistance with
+                  bookings, our team is here to help. Please reach out to us using the contact information below:
+
+                </p>
+                <br>
+
+                <p>Phone: +91 86681 80621</p>
+                <p>Email: mytndroptaxi@gmail.com</p>
+                <!--<p>Operating Hours: Mon - Sat: 9:00 AM - 6:00 PM</p>-->
+                <br>
+                <p class="card-text">
+                  Your satisfaction is our priority, and we look forward to assisting you with your transportation
+                  needs!
+
+                </p><br>
+
+
+
+
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+
+    </article>
+  </main>
+
+
+
+
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+    <div class="container">
+
+      <div class="footer-top">
+
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <h2>Family Drop Taxi</h2>
+          </a>
+
+          <p class="footer-text">
+            Welcome, your trusted partner for seamless and reliable transportation services. We pride ourselves on
+            delivering top-notch service with a focus on punctuality and customer satisfaction.
+          </p>
+        </div>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Company</p>
+          </li>
+
+          <li>
+            <a href="#about-us" class="footer-link">About us</a>
+          </li>
+
+          <li>
+            <a href="#booking-terms" class="footer-link">Booking Terms</a>
+          </li>
+
+          <li>
+            <a href="#contact-us" class="footer-link">Contacts</a>
+          </li>
+
+        </ul>
+
+        <!--<ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Support</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Help center</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Ask a question</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Privacy policy</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Terms & conditions</a>
+          </li>
+
+        </ul>-->
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Popular Trips from Chennai</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Chennai</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Vellore</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Thiruvannamalai</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Pondicherry</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Tirupathi</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Bangalore</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Madurai</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Kanyakumari</a>
+          </li>
+
+        </ul>
+
+      </div>
+
+      <!--      <div class="footer-bottom">
+
+        <ul class="social-list">
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-skype"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="mail-outline"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+        <p class="copyright">
+          &copy; 2022 <a href="#">codewithsadee</a>. All Rights Reserved
+        </p>
+
+      </div>-->
+
+    </div>
+  </footer>
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
