@@ -293,7 +293,7 @@ Appro Fare: ${fare}
 Thank you!
 Best regards,\n
 **Family Drop taxi**\n
-[www.familydroptaxi.in](https://familydroptaxi.in)
+https://familydroptaxi.in
         `;
 
         // URL encode the message
