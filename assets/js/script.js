@@ -272,7 +272,7 @@ function sendTelegramMsg(){
         // Construct the message with placeholders replaced
         const messageText = `
 Dear Customer,
-Thank you for booking Taxi through Family DropTaxi. Here are the details:
+Thank you for booking Taxi through Family Droptaxi. Here are the details:
 
 Customer Name: ${customerName}  
 Contact Number: ${customerNumber}
@@ -293,7 +293,7 @@ Toll Charges, Hill Charges & Parking Charges Extra if applicable
 
 Thank you!
 Best regards,
-**Family Drop taxi**
+**Family Droptaxi**
 https://familydroptaxi.in
         `;
 
