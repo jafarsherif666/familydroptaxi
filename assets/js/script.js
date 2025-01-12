@@ -289,7 +289,7 @@ Total Distance: ${distance} KM
 Round Trip: ${roundTripValue}
 Driver Betta: ${driverbetta}
 Fare Estimation: ${fare}
-Toll, Hill, Permit and Parking Charges Extra if applicable
+Toll, Hill-station, Permit and Parking Charges Extra if applicable
 
 Thank you!
 Best regards,
