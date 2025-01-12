@@ -271,8 +271,8 @@ function sendTelegramMsg(){
 
         // Construct the message with placeholders replaced
         const messageText = `
-Dear Admin,
-A new drop taxi booking has been made. Here are the details:
+Dear Customer,
+Thank you for booking Taxi through Family DropTaxi. Here are the details:
 
 Customer Name: ${customerName}  
 Contact Number: ${customerNumber}
@@ -285,14 +285,15 @@ Drop Link: ${dropMapLink}
             
 Pickup Date/Time: ${pickupTime}  
 Cab Type: ${cabType}
-Total Distance: ${distance} km  
+Total Distance: ${distance} KM  
 Round Trip: ${roundTripValue}
 Driver Betta: ${driverbetta}
-Appro Fare: ${fare}
+Fare Estimation: ${fare}
+Toll Charges, Hill Charges & Parking Charges Extra if applicable
 
 Thank you!
-Best regards,\n
-**Family Drop taxi**\n
+Best regards,
+**Family Drop taxi**
 https://familydroptaxi.in
         `;
 
