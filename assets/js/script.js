@@ -322,11 +322,11 @@ https://familydroptaxi.in
 document.getElementById('hero-form').addEventListener('submit', function (event) {   
     event.preventDefault(); // Prevent form submission
     let text = `Due to heavy traffic and demand, fares are adjusted as follows: 
-    * Sedan (Etios, Dzire): Rs. 17/km
-    * SUV (Marazzo, Ertiga): Rs. 22/km
-    * Innova Crysta: Rs. 26/km
+    * Sedan (Etios, Dzire, Etc): Rs.17/KM
+    * SUV (Marazzo, Ertiga, Etc): Rs.22/KM
+    * Innova Crysta: Rs.26/KM
 
-    Proceed to book your cab?`;
+    Proceed to book your Taxi?`;
       if (confirm(text) != true) {
         return;
       }
