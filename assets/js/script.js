@@ -33,7 +33,9 @@ const navToggleFunc = function () {
 const dateInput = document.getElementById('input-5');
 const timeInput = document.getElementById('input-6');
 const timeError = document.getElementById('time-error');
-
+const bounds = "11.1271,78.6569"; // Southwest|Northeast
+const radius = 700000;
+    
 function validateTime() {
     const today = new Date();
     today.setMinutes(today.getMinutes() + 30);
@@ -391,7 +393,7 @@ const debouncedFetchDropSuggestions = debounce(function(query) {
 
 // Fetch suggestions for pickup point
 function fetchPickupSuggestions(query) {
-    fetch(`https://api.olamaps.io/places/v1/autocomplete?input=${query}&api_key=${apiKey}`)
+    fetch(`https://api.olamaps.io/places/v1/autocomplete?input=${query}&api_key=${apiKey}&location=${bounds}&radius=${radius}&strictbounds=true`)
         .then(response => response.json())
         .then(data => {
             if (data.status === "ok") {
@@ -407,7 +409,7 @@ function fetchPickupSuggestions(query) {
 // Fetch suggestions for drop point (dummy URL for example)
 function fetchDropSuggestions(query) {
     
-    fetch(`https://api.olamaps.io/places/v1/autocomplete?input=${query}&api_key=${apiKey}&components=country:IN`) // Update with actual endpoint if different
+    fetch(`https://api.olamaps.io/places/v1/autocomplete?input=${query}&api_key=${apiKey}&location=${bounds}&radius=${radius}&strictbounds=true`) // Update with actual endpoint if different
         .then(response => response.json())
         .then(data => {
             if (data.status === "ok") {
