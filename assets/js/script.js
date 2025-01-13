@@ -30,6 +30,7 @@ const navToggleFunc = function () {
   navbar.classList.toggle("active");
   overlay.classList.toggle("active");
 }
+const mobileNumInput = document.getElementById('input-2');
 const dateInput = document.getElementById('input-5');
 const timeInput = document.getElementById('input-6');
 const timeError = document.getElementById('time-error');
@@ -53,9 +54,19 @@ function validateTime() {
       timeInput.setCustomValidity('');
     }
 }
+
+function validateMobileNum() {
+      if (/^[0-6]/.test(mobileNumInput.value.trim())) {
+        mobileNumInput.setCustomValidity('Please enter valid mobile number');
+      } else {
+        mobileNumInput.setCustomValidity('');
+      }
+}
+
 // Listen for changes in date and time fields
 dateInput.addEventListener('change', validateTime);
 timeInput.addEventListener('change', validateTime);
+mobileNumInput.addEventListener('change', validateMobileNum);
 
 
 navToggleBtn.addEventListener("click", navToggleFunc);
@@ -495,7 +506,6 @@ $('.t-dropdown-list').on('click', 'li.t-dropdown-item', function() {
     const selectedText = $(this).text();
     const dropdownInput = $(this).closest('.input-wrapper').find('.t-dropdown-input');
     dropdownInput.val(selectedText);
-    console.log("d");
    if (dropdownInput.attr('id') === 'pickup-point' || dropdownInput.attr('id') === 'drop-point') {
         calculateDistance();    
         dropdownInput.next('.t-dropdown-list').slideUp('fast').empty(); // Clear the list
@@ -511,7 +521,6 @@ $(document).on('click', function(event) {
         // Close and clear both dropdowns if clicked outside
         $('#pickup-dropdown-list').slideUp('fast').empty();
         $('#drop-dropdown-list').slideUp('fast').empty();
-        console.log($('#t-dropdown-list'));
         const dropInput = document.getElementById("drop-point");
        
         $('#t-dropdown-list').slideUp('fast');
