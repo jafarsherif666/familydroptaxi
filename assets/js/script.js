@@ -44,6 +44,19 @@ const radius = 700000;
 const returnDateInput = document.getElementById('return-date');
 const returnDateElement = document.getElementById('return-date-element');    
 returnDateElement.style.display = 'none';
+let ipAddress="";
+async function getIpAddressAndConstructMessage() {
+  try {
+    const response = await fetch("https://checkip.amazonaws.com/");
+     ipAddress = await response.text();
+      console.log(ipAddress);
+  } catch (error) {
+    console.error("Error fetching IP address:", error);
+    // Handle the error, e.g., display an error message to the user
+  }
+}
+getIpAddressAndConstructMessage();
+
 function validateTime() {
     const today = new Date();
     today.setMinutes(today.getMinutes() + 30);
@@ -300,17 +313,14 @@ function sendTelegramMsg(){
     const cabType = document.getElementById('cab_type').innerText;
     const fare = document.getElementById('fare').innerText;
     const driverbetta = document.getElementById("driver_betta").innerText
-    const ipaddress="";
-    //fetch("https://checkip.amazonaws.com/").then(res => res.text()).then(data => ipaddress = data);
-    //Ip : ${ipaddress}  
-
-        // Construct the message with placeholders replaced
+    
         const messageText = `
 Dear Customer,
 Thank you for booking Taxi through Family Droptaxi. Here are the details:
 
 Customer Name: ${customerName}  
 Contact Number: ${customerNumber}
+Ip Address: ${ipAddress}
 
 Pickup Location: ${customerPickupLoc}  
 Pickup Link: ${pickupMapLink}  
