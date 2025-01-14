@@ -19,6 +19,7 @@ let roundTripValue = 'No';
 let prevRoundTripValue = '';
 let formattedPickupTime='';
 let formattedDate='';
+let formattedReturnDate='';
 let distance =0;
 let apprFare;
 let pickupPointValue='';
@@ -30,13 +31,19 @@ const navToggleFunc = function () {
   navbar.classList.toggle("active");
   overlay.classList.toggle("active");
 }
+const taxiDetails={ "sedan" : {"fare":14, "description":"Sedan(Etios, Dzire etc) - Rs.14/km"},
+                    "suv" : {"fare":19, "description":"SUV(Marazzo, Ertiga etc) - Rs.19/km"}, 
+                    "crysta" : {"fare":22, "description":"Innova Crysta(Rs.22/km)"}
+                    };
 const mobileNumInput = document.getElementById('input-2');
 const dateInput = document.getElementById('input-5');
 const timeInput = document.getElementById('input-6');
 const timeError = document.getElementById('time-error');
 const bounds = "11.1271,78.6569"; // Southwest|Northeast
 const radius = 700000;
-    
+const returnDateInput = document.getElementById('return-date');
+const returnDateElement = document.getElementById('return-date-element');    
+returnDateElement.style.display = 'none';
 function validateTime() {
     const today = new Date();
     today.setMinutes(today.getMinutes() + 30);
@@ -62,11 +69,23 @@ function validateMobileNum() {
         mobileNumInput.setCustomValidity('');
       }
 }
+function validateReturnDate(){
+  
+  const returnDate = new Date(returnDateInput.value);
+  const pickupDate = new Date(dateInput.value);
+  if (returnDate < pickupDate) {
+    returnDateInput.setCustomValidity("Drop date cannot be before or same as pickup date");
+  } else {
+    returnDateInput.setCustomValidity(""); 
+  }
+}
 
 // Listen for changes in date and time fields
-dateInput.addEventListener('change', validateTime);
+dateInput.addEventListener('change', ()=>{validateTime();validateReturnDate();});
 timeInput.addEventListener('change', validateTime);
 mobileNumInput.addEventListener('change', validateMobileNum);
+returnDateInput.addEventListener('change', validateReturnDate);
+
 
 
 navToggleBtn.addEventListener("click", navToggleFunc);
@@ -195,6 +214,7 @@ function calculateFare(){
     document.getElementById('customer_pickup_loc').innerText = document.getElementById('pickup-point').value;
     document.getElementById('customer_drop_loc').innerText = document.getElementById('drop-point').value;
     document.getElementById('customer_pickup_time').innerText = formattedDate+" "+formattedPickupTime;
+    document.getElementById('customer_return_date').innerText = roundTripValue=='Yes'?formattedReturnDate:'-';
     document.getElementById('customer_number').innerText = document.getElementById('input-2').value;
     document.getElementById('cab_type').innerText = document.getElementById('input-7').value;
     document.getElementById('round_trip').innerText = roundTripValue;
@@ -276,6 +296,7 @@ function sendTelegramMsg(){
     const pickupMapLink = constructGoogleMapsLink(pickupCoords.lat, pickupCoords.lng);
     const dropMapLink = constructGoogleMapsLink(dropCoords.lat, dropCoords.lng);
     const pickupTime = document.getElementById('customer_pickup_time').innerText;
+    const returnDate = roundTripValue=='Yes'?document.getElementById('customer_return_date').innerText:'-';
     const cabType = document.getElementById('cab_type').innerText;
     const fare = document.getElementById('fare').innerText;
     const driverbetta = document.getElementById("driver_betta").innerText
@@ -297,10 +318,11 @@ Pickup Link: ${pickupMapLink}
 Drop Location: ${customerDropLoc}
 Drop Link: ${dropMapLink}
             
+Round Trip: ${roundTripValue}
 Pickup Date/Time: ${pickupTime}  
+Return Date: ${returnDate}  
 Cab Type: ${cabType}
 Total Distance: ${distance} KM  
-Round Trip: ${roundTripValue}
 Driver Betta: ${driverbetta}
 Fare Estimation: ${fare}
 Toll, Hill-station, Permit and Parking Charges Extra if applicable
@@ -346,6 +368,7 @@ document.getElementById('hero-form').addEventListener('submit', function (event)
       }
     formattedPickupTime = convertTo12HourFormat(document.getElementById("input-6").value);
     formattedDate = formateDate(document.getElementById("input-5").value);
+    formattedReturnDate = formateDate(document.getElementById("return-date").value);
     console.log(this);
     showSuccessMessage();        
     sendEmail(this);
@@ -641,6 +664,7 @@ inputField.addEventListener('input', () => {
 
 document.getElementById('round-trip').addEventListener('change', function() {
     roundTripValue = this.checked ? 'Yes' : 'No';
+    returnDateElement.style.display = this.checked ? 'block':'none'; 
     document.getElementById("drop-point").  setCustomValidity("");
     calculateDistance();
     console.log('Round Trip:', roundTripValue);
