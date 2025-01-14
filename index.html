@@ -22,7 +22,7 @@
   <meta name="twitter:description" content="Book cab drop services across Tamil nadu. Enjoy safe, affordable and convenient travel for one way or round trip. 24/7 service with a wide range of vehicles">
   <meta name="twitter:card" content="./assets/images/familydroptaxi-logo.png">
   <meta name="twitter:image" content="./assets/images/familydroptaxi-logo.png">
-  <title>Family Drop Taxi - Affordable Taxi Services</title>
+  <title>Family Drop Taxi - Affordable drop taxi in chennai</title>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
   <!-- favicon -->
@@ -82,7 +82,7 @@
         <div class="header-contact">
           <a href="tel:8668180621" class="contact-link">+91 86681 80621</a>
 
-          <span class="contact-time">24-Hours Service, Every Day</span>
+          <span class="contact-time">24-Hour Service, Every Day</span>
         </div>
 
         <a href="#featured-car" class="btn" aria-labelledby="aria-label-txt">
@@ -143,7 +143,7 @@
               <label for="input-2" class="input-label">Mobile Number</label>
 
               <input type="number" name="customer_number" id="input-2" class="input-field" placeholder="Mobile Number"
-                maxlength='10' minlength='10' pattern="^\d{10}$"
+                maxlength='10' minlength='10' pattern="^[6-9][0-9]{9}$" 
                 oninput="javascript: this.value = this.value.replace(/[^0-9]/g, '').slice(0, this.maxLength);" required
                 autocomplete="off">
             </div>
@@ -194,6 +194,20 @@
                 <input type="checkbox" style="width:10%" id="round-trip" name="round_trip">
               </div>
             </div>
+            <div class="input-wrapper" id="return-date-element">
+              <label for="drop-date" class="input-label">Drop Date</label>
+
+              <input type="date" name="customer_return_date" id="return-date" class="input-field"
+                placeholder="Add Return Date"
+                onfocus="this.min=new Date().toISOString().split('T')[0]; this.max=new Date(new Date().setMonth(new Date().getMonth() + 6)).toISOString().split('T')[0]; 
+                   const pickupDateInput = document.getElementById('input-5');
+                   const selectedPickupDate = pickupDateInput.value?new Date(pickupDateInput.value):null;
+                   if (selectedPickupDate) { 
+                     selectedPickupDate.setDate(selectedPickupDate.getDate() + 1);
+                     this.min = selectedPickupDate.toISOString().split('T')[0];
+                   }">
+            </div>
+  
             <p class="appr-fare input-label hidden" id="appr-fare">
                 <b>Total Distance</b> : <span class="inline" id='total_km'></span><br>
                 <b>Charges per KM</b> : <span class="inline" id='charges_km'></span><br>
@@ -203,7 +217,7 @@
             <button type="submit" class="btn submit-btn">Submit</button>
           </form>
           <div class="input-wrapper-success">
-            <span>
+              <span>
               <ion-icon name="checkmark-circle-outline" class="inline-blk"></ion-icon> <span class="inline-blk">A New
                 Drop Taxi booking has been submitted:</span><br>
               <p class="blk">
@@ -214,6 +228,7 @@
                 <b>Drop-off Location :</b> <span id="customer_drop_loc" class="inline-blk"></span><br>
                 <b>Round Trip :</b> <span id="round_trip" class="inline-blk"></span><br>
                 <b>Pickup Date/Time :</b> <span id="customer_pickup_time" class="inline-blk"></span><br>
+                <b>Return Date :</b> <span id="customer_return_date" class="inline-blk"></span><br>
                 <b>Total Distance :</b> <span id="distance" class="inline-blk"></span><br>
                 <b>Total Fare :</b> <span id="fare" class="inline-blk"></span><br>
               </p>
@@ -503,15 +518,15 @@
 
 
 
-                <h3 class="card-title">Driver Allowance (Betta)</h3>
+                <h3 class="card-title">Driver Betta</h3>
 
                 <p class="card-text">
-                  Driver Allowance (Betta) - Rs. 300</p>
+                  Driver Betta - Rs. 300.</p>
 
                 <p class="card-text">
-                  Driver Allowance (Betta) above 400 KM - Rs. 500</p>
+                  Driver Betta above 400 km - Rs. 500</p>
                 <br><br>
-                <h3 class="card-title">Minimum KM</h3>
+                <h3 class="card-title">Minimum Km</h3>
 
                 <p class="card-text">
 
@@ -524,11 +539,11 @@
 
                 <p class="card-text">
 
-                  Additional charges - Toll Fees, Inter-State Permit, Hill Station charges, Airport charges, Parking Charges (if any) are
+                  Additional charges - Toll Fees, Inter-State Permit, Airport charges Parking Charges (if any) are
                   extra.
                 </p>
                 <p class="card-text">
-                  1 day means 1 Calendar day (from Midnight 12 AM to next Midnight 12 AM)
+                  1 day meant 1 Calender day (from midnight 12 AM to Next Midnight 12 AM)
                 </p>
 
 
@@ -703,7 +718,7 @@
           </li>
 
           <li>
-            <a href="#" class="footer-link">Coimbatore</a>
+            <a href="#" class="footer-link">Chennai</a>
           </li>
 
           <li>
