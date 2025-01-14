@@ -369,7 +369,7 @@ document.getElementById('hero-form').addEventListener('submit', function (event)
     event.preventDefault(); // Prevent form submission
     let text = `Due to heavy traffic and demand, fares will be adjusted as follows: 
     * Sedan (Etios, Dzire, Etc): Rs.16/KM
-    * SUV (Marazzo, Ertiga, Etc): Rs.20/KM
+    * SUV (Marazzo, Ertiga, Etc): Rs.21/KM
     * Innova Crysta: Rs.25/KM
 
     Proceed to book your Taxi?`;
