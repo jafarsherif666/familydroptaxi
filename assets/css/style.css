@@ -1338,12 +1338,12 @@ font-size: small;
         grid-column: 3 / span 1; /* Puts it in the fourth column */
         align-self: center; /* Vertically center the button if needed */
         margin: 20px;
-        font-size: small;
+        font-size: smaller;
     }
     
 }
     .appr-fare {
-        font-size:small;
+        font-size:smaller;
         margin: 20px;
     }
 
@@ -1356,7 +1356,7 @@ font-size: small;
             grid-column: 1 / span 1; /* Puts it in the fourth column */
             align-self: center; /* Vertically center the button if needed */
             margin: 20px;
-        font-size: small;
+        font-size: smaller;
         }
 }
 
@@ -1413,7 +1413,8 @@ input-wrapper-success ion-icon {
 #cab_type,
 #distance,
 #fare,
-#customer_pickup_time {
+#customer_pickup_time,
+#customer_return_date{
     color: #2c662d;
 }
 
