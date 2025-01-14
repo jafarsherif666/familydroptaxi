@@ -335,7 +335,7 @@ Cab Type: ${cabType}
 Total Distance: ${distance} KM  
 Driver Betta: ${driverbetta}
 Fare Estimation: ${fare}
-Toll, Hill-station, Permit and Parking Charges Extra if applicable
+Toll, Permit, Hill-station, Luggage carrier, waiting and Parking Charges Extra if applicable
 
 Thank you!
 Best regards,
