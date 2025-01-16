@@ -320,7 +320,6 @@ Thank you for booking Taxi through Family Droptaxi. Here are the details:
 
 Customer Name: ${customerName}  
 Contact Number: ${customerNumber}
-Ip Address: ${ipAddress}
 
 Pickup Location: ${customerPickupLoc}  
 Pickup Link: ${pickupMapLink}  
@@ -341,6 +340,8 @@ Thank you!
 Best regards,
 **Family Droptaxi**
 https://familydroptaxi.in
+Contact: 8668180621
+Ip Address: ${ipAddress}
         `;
 
         // URL encode the message
