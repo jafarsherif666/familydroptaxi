@@ -368,15 +368,15 @@ Ip Address: ${ipAddress}
 }
 document.getElementById('hero-form').addEventListener('submit', function (event) {   
     event.preventDefault(); // Prevent form submission
-    let text = `Due to heavy traffic and demand, Trips towards Chennai will be adjusted as follows: 
-      * Sedan (Etios, Dzire, Etc): Rs.15/KM
-      * SUV (Marazzo, Ertiga, Etc): Rs.21/KM
-      * Innova Crysta: Rs.24/KM
+//    let text = `Due to heavy traffic and demand, Trips towards Chennai will be adjusted as follows: 
+//      * Sedan (Etios, Dzire, Etc): Rs.15/KM
+//      * SUV (Marazzo, Ertiga, Etc): Rs.21/KM
+//      * Innova Crysta: Rs.24/KM
 
-    Proceed to book your Taxi?`;
-      if (confirm(text) != true) {
-        return;
-      }
+//    Proceed to book your Taxi?`;
+//      if (confirm(text) != true) {
+//        return;
+//      }
     formattedPickupTime = convertTo12HourFormat(document.getElementById("input-6").value);
     formattedDate = formateDate(document.getElementById("input-5").value);
     formattedReturnDate = formateDate(document.getElementById("return-date").value);
