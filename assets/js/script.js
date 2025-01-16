@@ -372,7 +372,7 @@ document.getElementById('hero-form').addEventListener('submit', function (event)
 //      * Sedan (Etios, Dzire, Etc): Rs.15/KM
 //      * SUV (Marazzo, Ertiga, Etc): Rs.21/KM
 //      * Innova Crysta: Rs.24/KM
-
+//
 //    Proceed to book your Taxi?`;
 //      if (confirm(text) != true) {
 //        return;
