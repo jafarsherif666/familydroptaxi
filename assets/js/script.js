@@ -190,7 +190,7 @@ function calculateFare(){
                 console.log('Unknown car type selected');
                 return 0; // Return 0 if the car type is not recognized
         }
-        let driverBetta = distance>400?500:300;
+        let driverBetta = distance>400?500:400;
         let minimumDistance;
         document.getElementById("minimum_distance").innerText = ""; 
         if(roundTripValue=="Yes"){
