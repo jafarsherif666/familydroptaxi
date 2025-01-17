@@ -59,7 +59,7 @@ getIpAddressAndConstructMessage();
 
 function validateTime() {
     const today = new Date();
-    today.setMinutes(today.getMinutes() + 30);
+    today.setMinutes(today.getMinutes() );
     const selectedDate = new Date(dateInput.value);
     const currentTime = today.toTimeString().split(":").slice(0, 2).join(":");
 
