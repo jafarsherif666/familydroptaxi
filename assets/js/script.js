@@ -33,7 +33,7 @@ const navToggleFunc = function () {
 }
 const taxiDetails={ "sedan" : {"fare":14, "description":"Sedan(Etios, Dzire etc)"},
                     "suv" : {"fare":19, "description":"SUV(Marazzo, Ertiga, Xylo etc)"}, 
-                    "crysta" : {"fare":20, "description":"Innova only"}
+                    "crysta" : {"fare":20, "description":"SUV - Innova"}
                     };
 const mobileNumInput = document.getElementById('input-2');
 const dateInput = document.getElementById('input-5');
@@ -183,7 +183,7 @@ function calculateFare(){
             case 'SUV(Marazzo, Ertiga, Xylo etc)':
                 ratePerKm = 19;
                 break;
-            case 'Innova only':
+            case 'SUV - Innova':
                 ratePerKm = 20;
                 break;
             default:
@@ -371,7 +371,7 @@ document.getElementById('hero-form').addEventListener('submit', function (event)
 //    let text = `Due to heavy traffic and demand, Trips towards Chennai will be adjusted as follows: 
 //      * Sedan (Etios, Dzire, Etc): Rs.15/KM
 //      * SUV (Marazzo, Ertiga, Etc): Rs.21/KM
-//      * Innova Crysta: Rs.24/KM
+//      * SUV - Innova: Rs.24/KM
 //
 //    Proceed to book your Taxi?`;
 //      if (confirm(text) != true) {
