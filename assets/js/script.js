@@ -33,7 +33,7 @@ const navToggleFunc = function () {
 }
 const taxiDetails={ "sedan" : {"fare":14, "description":"Sedan(Etios, Dzire etc) - Rs.14/km"},
                     "suv" : {"fare":19, "description":"SUV(Marazzo, Ertiga etc) - Rs.19/km"}, 
-                    "crysta" : {"fare":22, "description":"Innova Crysta(Rs.22/km)"}
+                    "crysta" : {"fare":20, "description":"Innova Crysta(Rs.20/km)"}
                     };
 const mobileNumInput = document.getElementById('input-2');
 const dateInput = document.getElementById('input-5');
@@ -183,8 +183,8 @@ function calculateFare(){
             case 'SUV(Marazzo, Ertiga etc) - Rs.19/km':
                 ratePerKm = 19;
                 break;
-            case 'Innova Crysta(Rs.22/km)':
-                ratePerKm = 22;
+            case 'Innova Crysta(Rs.20/km)':
+                ratePerKm = 20;
                 break;
             default:
                 console.log('Unknown car type selected');
