@@ -59,7 +59,7 @@ getIpAddressAndConstructMessage();
 
 function validateTime() {
     const today = new Date();
-    today.setMinutes(today.getMinutes() );
+    today.setMinutes(today.getMinutes() ); // +30 has been removed by Jafar for to remove validation
     const selectedDate = new Date(dateInput.value);
     const currentTime = today.toTimeString().split(":").slice(0, 2).join(":");
 
