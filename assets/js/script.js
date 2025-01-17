@@ -59,14 +59,14 @@ getIpAddressAndConstructMessage();
 
 function validateTime() {
     const today = new Date();
-    today.setMinutes(today.getMinutes() + 30);
+    today.setMinutes(today.getMinutes() ); // +30 was there by jafar
     const selectedDate = new Date(dateInput.value);
     const currentTime = today.toTimeString().split(":").slice(0, 2).join(":");
 
     // If date is today, restrict the time to be after the current time
     if (selectedDate.toDateString() === today.toDateString()) {
-      if (timeInput.value && timeInput.value <= currentTime) {
-        timeInput.setCustomValidity('Please choose the time atleast 30 mins from now or later');
+      if (timeInput.value && timeInput.value < currentTime) { // <= was there removed by jafar
+        timeInput.setCustomValidity('Please choose the time from now or later');
       } else {
         timeInput.setCustomValidity('');
       }
