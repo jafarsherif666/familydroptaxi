@@ -203,7 +203,7 @@
                    const pickupDateInput = document.getElementById('input-5');
                    const selectedPickupDate = pickupDateInput.value?new Date(pickupDateInput.value):null;
                    if (selectedPickupDate) { 
-                     selectedPickupDate.setDate(selectedPickupDate.getDate() + 1);
+                     selectedPickupDate.setDate(selectedPickupDate.getDate());
                      this.min = selectedPickupDate.toISOString().split('T')[0];
                    }">
             </div>
