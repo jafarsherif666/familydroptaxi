@@ -86,8 +86,8 @@ function validateReturnDate(){
   
   const returnDate = new Date(returnDateInput.value);
   const pickupDate = new Date(dateInput.value);
-  if (returnDate < pickupDate) {
-    returnDateInput.setCustomValidity("Drop date cannot be before or same as pickup date");
+  if (returnDate <= pickupDate) {
+    returnDateInput.setCustomValidity("Drop date cannot be past date");
   } else {
     returnDateInput.setCustomValidity(""); 
   }
