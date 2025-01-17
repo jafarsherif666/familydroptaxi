@@ -31,7 +31,7 @@ const navToggleFunc = function () {
   navbar.classList.toggle("active");
   overlay.classList.toggle("active");
 }
-const taxiDetails={ "sedan" : {"fare":14, "description":"Sedan(Etios, Dzire etc) - Rs.14/km"},
+const taxiDetails={ "sedan" : {"fare":14, "description":"Sedan(Etios, Dzire etc)"},
                     "suv" : {"fare":19, "description":"SUV(Marazzo, Ertiga etc) - Rs.19/km"}, 
                     "crysta" : {"fare":20, "description":"Innova Crysta(Rs.20/km)"}
                     };
@@ -177,7 +177,7 @@ function calculateFare(){
         let ratePerKm;
 
         switch (cabType) {
-            case 'Sedan(Etios, Dzire etc) - Rs.14/km':
+            case 'Sedan(Etios, Dzire etc)':
                 ratePerKm = 14;
                 break;
             case 'SUV(Marazzo, Ertiga etc) - Rs.19/km':
