@@ -188,7 +188,7 @@ function calculateFare(){
                 break;
             default:
                 console.log('Unknown car type selected');
-                return 14; // Return 0 if the car type is not recognized
+                return 14; // Return 14 if the car type is not recognized, since most trips are Sedan
         }
         let driverBetta = distance>400?500:400;
         let minimumDistance;
