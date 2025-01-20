@@ -316,7 +316,7 @@ function sendTelegramMsg(){
     
         const messageText = `
 Dear Customer,
-Thank you for booking Taxi through Family Droptaxi. Here are the details:
+Thank you for Enquiry/booking Taxi through Family Droptaxi. Here are the details:
 
 Customer Name: ${customerName}  
 Contact Number: ${customerNumber}
@@ -341,7 +341,7 @@ Best regards,
 **Family Droptaxi**
 https://familydroptaxi.in
 Contact: 8668180621
-Ip Address: ${ipAddress}
+IP Address: ${ipAddress}
         `;
 
         // URL encode the message
