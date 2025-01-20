@@ -47,7 +47,7 @@
   gtag('config', 'AW-11538693654');
 </script>
 
-  <!-- Event snippet for Submit query form conversion page
+<!-- Event snippet for Booking cab conversion page
 In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
 <script>
 function gtag_report_conversion(url) {
@@ -57,12 +57,15 @@ function gtag_report_conversion(url) {
     }
   };
   gtag('event', 'conversion', {
-      'send_to': 'AW-11538693654/lXX6COegrIwaEJb8if4q',
+      'send_to': 'AW-11538693654/pDyGCK3EtYwaEJb8if4q',
+      'value': 1.0,
+      'currency': 'INR',
       'event_callback': callback
   });
   return false;
 }
 </script>
+
 
 </head>
 
