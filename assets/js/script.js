@@ -76,7 +76,7 @@ function validateTime() {
 }
 
 function validateMobileNum() {
-      if (/^[0-6]/.test(mobileNumInput.value.trim())) {
+      if (/^[0-5]/.test(mobileNumInput.value.trim())) {
         mobileNumInput.setCustomValidity('Please enter valid mobile number');
       } else {
         mobileNumInput.setCustomValidity('');
