@@ -378,12 +378,12 @@ document.getElementById('hero-form').addEventListener('submit', function (event)
 //        return;
 //      }
 
-  gtag('event', 'conversion', {
+/*  gtag('event', 'conversion', {
       'send_to': 'AW-11538693654/BlZ0CPOV9IwaEJb8if4q',
       'value': 1.0,
       'currency': 'INR'
     });
-  
+  */
     formattedPickupTime = convertTo12HourFormat(document.getElementById("input-6").value);
     formattedDate = formateDate(document.getElementById("input-5").value);
     formattedReturnDate = formateDate(document.getElementById("return-date").value);
