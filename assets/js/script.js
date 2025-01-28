@@ -682,8 +682,9 @@ function initAutocomplete() {
  google.maps.event.addListener(autocomplete, 'place_changed', function () {
     document.getElementById('pickup-point').setCustomValidity("");
     var name = autocomplete.getPlace().name;
-    document.getElementById('pickup-point').value = name;
-    pickupMapLink = "https://www.google.com/maps/search/?q=" + encodeURIComponent(name);
+    var address = autocomplete.getPlace().formatted_address;
+    document.getElementById('pickup-point').value = name + " " +address;
+    pickupMapLink = "https://www.google.com/maps/search/?q=" + encodeURIComponent(name+ " " +address);
 
  });
 
@@ -699,8 +700,9 @@ function initAutocomplete() {
  google.maps.event.addListener(autocomplete_drop, 'place_changed', function () {
     document.getElementById('drop-point').setCustomValidity("");
     var name = autocomplete_drop.getPlace().name;
-    document.getElementById('drop-point').value = name;
-    dropMapLink = "https://www.google.com/maps/search/?q=" + encodeURIComponent(name);
+    var address = autocomplete_drop.getPlace().formatted_address;
+    document.getElementById('drop-point').value = name+ " " +address;
+    dropMapLink = "https://www.google.com/maps/search/?q=" + encodeURIComponent(name+ " " +address);
 
  });
 }
