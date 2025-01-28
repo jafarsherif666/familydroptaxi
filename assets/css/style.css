@@ -118,6 +118,16 @@ input,
 button,
 ion-icon { display: block; }
 
+.pac-item, .pac-item-query {
+  display: flex;
+}
+span:has(.pac-matched) {
+  display: flex;
+}
+
+/*.pac-container{
+  width: 30% !important;
+}*/
 button,
 input {
   background: none;
@@ -1430,4 +1440,10 @@ input-wrapper-success ion-icon {
 }
 .inline {
     display: inline
+}
+
+#map {
+  height: 400px;
+  width: 500%;
+  display: block;
 }

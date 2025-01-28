@@ -15,6 +15,9 @@ const month = (now.getMonth() + 1).toString().padStart(2, '0');
 const day = now.getDate().toString().padStart(2, '0');
 let pickupCoords = {};
 let dropCoords = {};
+let pickupMapLink="";
+let dropMapLink="";
+
 let roundTripValue = 'No';
 let prevRoundTripValue = '';
 let formattedPickupTime='';
@@ -139,12 +142,49 @@ function calculateDistance(){
     dropPointValue = document.getElementById("drop-point").value;
     prevRoundTripValue = roundTripValue;
     cabTypeValue = cabType;
-    getDistanceBetweenPoints(pickupCoords, dropCoords, (sucess)=> {   
+    /*getDistanceBetweenPoints(pickupCoords, dropCoords, (sucess)=> {   
+        if(sucess != false && validateDropPoint()!=false){
+            calculateFare();    
+        }
+        
+    });*/
+    getDistanceBetweenPointsGoogle( (sucess)=> {  
+        console.log(sucess); 
         if(sucess != false && validateDropPoint()!=false){
             calculateFare();    
         }
         
     });
+}
+function getDistanceBetweenPointsGoogle(callback) {
+    // Get the input values
+    const origin = document.getElementById("pickup-point").value;
+    const destination = document.getElementById("drop-point").value;
+
+    // Create a new Distance Matrix Service instance
+    const service = new google.maps.DistanceMatrixService();
+
+    // Request to get distance between the locations
+    service.getDistanceMatrix(
+        {
+            origins: [origin],
+            destinations: [destination],
+            travelMode: 'DRIVING',  // You can change it to 'WALKING', 'BICYCLING', or 'TRANSIT'
+            unitSystem: google.maps.UnitSystem.METRIC  // Change to METRIC for kilometers
+        },
+        (response, status) => {
+            if (status === 'OK') {
+                // Extract distance and duration from the response
+                const results = response.rows[0].elements[0];
+                distance = results.distance.text.replace(" km", "").replace(" m", "");
+                const duration = results.duration.text;
+                callback();
+            } else {
+                console.log('Error calculating distance: ' + status);
+                callback(false);
+            }
+        }
+    );
 }
 function validateDropPoint(){
     const dropInput = document.getElementById("drop-point");
@@ -306,8 +346,9 @@ function sendTelegramMsg(){
     const customerPickupLoc = document.getElementById('customer_pickup_loc').innerText;
     const customerDropLoc = document.getElementById('customer_drop_loc').innerText;
     const customerNumber = document.getElementById('customer_number').innerText;
-    const pickupMapLink = constructGoogleMapsLink(pickupCoords.lat, pickupCoords.lng);
-    const dropMapLink = constructGoogleMapsLink(dropCoords.lat, dropCoords.lng);
+    //const pickupMapLink = constructGoogleMapsLink(pickupCoords.lat, pickupCoords.lng);
+    //const dropMapLink = constructGoogleMapsLink(dropCoords.lat, dropCoords.lng);
+    const directionLink = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(customerPickupLoc)}&destination=${encodeURIComponent(customerDropLoc)}&travelmode=driving`;
     const pickupTime = document.getElementById('customer_pickup_time').innerText;
     const returnDate = roundTripValue=='Yes'?document.getElementById('customer_return_date').innerText:'-';
     const cabType = document.getElementById('cab_type').innerText;
@@ -326,7 +367,8 @@ Pickup Link: ${pickupMapLink}
 
 Drop Location: ${customerDropLoc}
 Drop Link: ${dropMapLink}
-            
+
+Direction Link: ${directionLink}
 Round Trip: ${roundTripValue}
 Pickup Date/Time: ${pickupTime}  
 Return Date: ${returnDate}  
@@ -398,7 +440,7 @@ document.getElementById('hero-form').addEventListener('submit', function (event)
 });
 
     
-const apiKey = 'CvBHxlan7n1vSlyPb4yJrb3DL0aSACdZotfvRdye';
+/*const apiKey = 'CvBHxlan7n1vSlyPb4yJrb3DL0aSACdZotfvRdye';
 // Handle input for both pickup point and drop point to trigger API call
 $('.t-dropdown-input').on('input', function() {
     const dropdownList = $(this).next('.t-dropdown-list');
@@ -523,7 +565,7 @@ function updateDropdown(dropdownList, predictions, otherFieldValue, fieldType) {
     }
 }
 
-// Handle dropdown visibility for the clicked input
+*/// Handle dropdown visibility for the clicked input
 $('.t-dropdown-input').on('click', function() {
     const dropdownList = $(this).next('.t-dropdown-list');
 
@@ -627,31 +669,41 @@ function highlightItem(items, index) {
 }
 
 // END //
-  /*  
+function initAutocomplete() {
  var autocomplete;
- autocomplete = new google.maps.places.Autocomplete((document.getElementById('input-3')), {
-  types: ['geocode'],
+ autocomplete = new google.maps.places.Autocomplete((document.getElementById('pickup-point')), {
   componentRestrictions: {
-   country: "IN"
+       country: 'IN'                        // Limit to India
+  //  administrative_area_level_1: 'Tamil Nadu', // Restrict to Tamil Nadu
+    //locality: 'Pondicherry'     
   }
  });
   
  google.maps.event.addListener(autocomplete, 'place_changed', function () {
-  document.getElementById('input-3').value = autocomplete.getPlace();
+    document.getElementById('pickup-point').setCustomValidity("");
+    var name = autocomplete.getPlace().name;
+    document.getElementById('pickup-point').value = name;
+    pickupMapLink = "https://www.google.com/maps/search/?q=" + encodeURIComponent(name);
+
  });
 
     var autocomplete_drop;
- autocomplete = new google.maps.places.Autocomplete((document.getElementById('input-4')), {
-  types: ['geocode'],
-  //componentRestrictions: {
-   //country: "USA"
-  //}
+    autocomplete_drop = new google.maps.places.Autocomplete((document.getElementById('drop-point')), {
+  componentRestrictions: {
+    country: 'IN'                         // Limit to India
+   // administrative_area_level_1: 'Tamil Nadu', // Restrict to Tamil Nadu
+   // locality: 'Pondicherry'     
+  }
  });
   
  google.maps.event.addListener(autocomplete_drop, 'place_changed', function () {
-  document.getElementById('input-4').value = autocomplete.getPlace();
+    document.getElementById('drop-point').setCustomValidity("");
+    var name = autocomplete_drop.getPlace().name;
+    document.getElementById('drop-point').value = name;
+    dropMapLink = "https://www.google.com/maps/search/?q=" + encodeURIComponent(name);
+
  });
-*/
+}
 
 
 function populate(carType){

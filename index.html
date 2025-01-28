@@ -73,6 +73,8 @@ function gtag_report_conversion(url) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Open+Sans&display=swap" rel="stylesheet">
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"> </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6_IMfqWGx_cwLHkWCQvpF7DAteON-bPY&libraries=places&callback=initAutocomplete" async defer></script>
+  
 
 
 
@@ -194,13 +196,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
 
             <div class="input-wrapper">
-              <label for="input-3" class="input-label">Pickup Point</label>
+              <label for="pickup-point" class="input-label">Pickup Point</label>
               <input type="text" name="customer_pickup_loc" id="pickup-point" class="input-field t-dropdown-input"
                 placeholder="Add Pickup Point" required autocomplete="off">
               <ul id="pickup-dropdown-list" class="t-dropdown-list autocomplete"></ul>
             </div>
             <div class="input-wrapper">
-              <label for="input-4" class="input-label">Drop Point</label>
+              <label for="drop-point" class="input-label">Drop Point</label>
 
               <input type="text" name="customer_drop_loc" id="drop-point" class="input-field t-dropdown-input"
                 placeholder="Add Drop Point" required autocomplete="off">
