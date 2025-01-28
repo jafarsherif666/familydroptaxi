@@ -15,8 +15,7 @@ const month = (now.getMonth() + 1).toString().padStart(2, '0');
 const day = now.getDate().toString().padStart(2, '0');
 let pickupCoords = {};
 let dropCoords = {};
-let pickupMapLink="";
-let dropMapLink="";
+
 
 let roundTripValue = 'No';
 let prevRoundTripValue = '';
@@ -346,9 +345,9 @@ function sendTelegramMsg(){
     const customerPickupLoc = document.getElementById('customer_pickup_loc').innerText;
     const customerDropLoc = document.getElementById('customer_drop_loc').innerText;
     const customerNumber = document.getElementById('customer_number').innerText;
-    //const pickupMapLink = constructGoogleMapsLink(pickupCoords.lat, pickupCoords.lng);
-    //const dropMapLink = constructGoogleMapsLink(dropCoords.lat, dropCoords.lng);
-    const directionLink = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(customerPickupLoc)}&destination=${encodeURIComponent(customerDropLoc)}&travelmode=driving`;
+    const pickupMapLink = constructGoogleMapsLink(pickupCoords.lat, pickupCoords.lng);
+    const dropMapLink = constructGoogleMapsLink(dropCoords.lat, dropCoords.lng);
+    const directionLink = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(pickupCoords.lat)},${encodeURIComponent(pickupCoords.lng)}&destination=${encodeURIComponent(dropCoords.lat)},${encodeURIComponent(dropCoords.lng)}&travelmode=driving`;
     const pickupTime = document.getElementById('customer_pickup_time').innerText;
     const returnDate = roundTripValue=='Yes'?document.getElementById('customer_return_date').innerText:'-';
     const cabType = document.getElementById('cab_type').innerText;
@@ -394,7 +393,7 @@ IP Address: ${ipAddress}
         // Construct the URL for the Telegram API request
         const url = `https://api.telegram.org/bot6577358669:AAHaR6p_uZ0sGDRwuxS0YKqyg-BVSpZPcZI/sendMessage?chat_id=-4231118038&text=${urlEncodedMessage}&&disable_web_page_preview=true&parse_mode=Markdown`;
         console.log(url);
-        fetch(url)
+       fetch(url)
         .then(response => response.json())
         .then(data => {
             if (data.ok) {
@@ -671,11 +670,15 @@ function highlightItem(items, index) {
 // END //
 function initAutocomplete() {
  var autocomplete;
+ const tamilNaduBounds = new google.maps.LatLngBounds(
+    new google.maps.LatLng(8.0749, 77.0782), // Southwest corner of Tamil Nadu
+    new google.maps.LatLng(13.0839, 80.3302)  // Northeast corner of Tamil Nadu
+);
+
  autocomplete = new google.maps.places.Autocomplete((document.getElementById('pickup-point')), {
-  componentRestrictions: {
-       country: 'IN'                        // Limit to India
-  //  administrative_area_level_1: 'Tamil Nadu', // Restrict to Tamil Nadu
-    //locality: 'Pondicherry'     
+    bounds: tamilNaduBounds,  
+    componentRestrictions: {
+       country: 'IN'       
   }
  });
   
@@ -683,8 +686,11 @@ function initAutocomplete() {
     document.getElementById('pickup-point').setCustomValidity("");
     var name = autocomplete.getPlace().name;
     var address = autocomplete.getPlace().formatted_address;
+    pickupCoords = {
+        lat: autocomplete.getPlace().geometry.location.lat(),
+        lng: autocomplete.getPlace().geometry.location.lng()
+    };
     document.getElementById('pickup-point').value = name + " " +address;
-    pickupMapLink = "https://www.google.com/maps/search/?q=" + encodeURIComponent(name+ " " +address);
 
  });
 
@@ -701,9 +707,12 @@ function initAutocomplete() {
     document.getElementById('drop-point').setCustomValidity("");
     var name = autocomplete_drop.getPlace().name;
     var address = autocomplete_drop.getPlace().formatted_address;
+    dropCoords = {
+        lat: autocomplete_drop.getPlace().geometry.location.lat(),
+        lng: autocomplete_drop.getPlace().geometry.location.lng()
+    };
     document.getElementById('drop-point').value = name+ " " +address;
-    dropMapLink = "https://www.google.com/maps/search/?q=" + encodeURIComponent(name+ " " +address);
-
+    
  });
 }
 

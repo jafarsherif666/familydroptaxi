@@ -121,6 +121,10 @@ ion-icon { display: block; }
 .pac-item, .pac-item-query {
   display: flex;
 }
+.pac-container .pac-item {
+  border-top: none; 
+  padding: 0.1rem 0.1rem;
+}
 span:has(.pac-matched) {
   display: flex;
 }
