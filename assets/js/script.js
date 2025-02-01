@@ -691,6 +691,7 @@ function initAutocomplete() {
         lng: autocomplete.getPlace().geometry.location.lng()
     };
     document.getElementById('pickup-point').value = name + " " +address;
+    calculateDistance();
 
  });
 
@@ -712,6 +713,7 @@ function initAutocomplete() {
         lng: autocomplete_drop.getPlace().geometry.location.lng()
     };
     document.getElementById('drop-point').value = name+ " " +address;
+    calculateDistance();
     
  });
 }
