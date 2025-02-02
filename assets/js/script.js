@@ -696,10 +696,9 @@ function initAutocomplete() {
 
     var autocomplete_drop;
     autocomplete_drop = new google.maps.places.Autocomplete((document.getElementById('drop-point')), {
-  componentRestrictions: {
-    country: 'IN'                         // Limit to India
-   // administrative_area_level_1: 'Tamil Nadu', // Restrict to Tamil Nadu
-   // locality: 'Pondicherry'     
+     bounds: tamilNaduBounds,  // Bias results towards Tamil Nadu
+    strictBounds: true,       // Ensures results are strictly within the bounds
+    componentRestrictions: { country: 'IN' }
   }
  });
   
