@@ -676,7 +676,9 @@ function initAutocomplete() {
 );
 
  autocomplete = new google.maps.places.Autocomplete((document.getElementById('pickup-point')), {
-    bounds: tamilNaduBounds  
+    bounds: tamilNaduBounds,  // Bias results towards Tamil Nadu
+    strictBounds: true,       // Ensures results are strictly within the bounds
+    componentRestrictions: { country: 'IN' }
  });
   
  google.maps.event.addListener(autocomplete, 'place_changed', function () {
