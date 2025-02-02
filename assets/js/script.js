@@ -677,7 +677,6 @@ function initAutocomplete() {
 
  autocomplete = new google.maps.places.Autocomplete((document.getElementById('pickup-point')), {
     bounds: tamilNaduBounds  
-  }
  });
   
  google.maps.event.addListener(autocomplete, 'place_changed', function () {
