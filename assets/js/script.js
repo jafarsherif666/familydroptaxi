@@ -699,7 +699,6 @@ function initAutocomplete() {
      bounds: tamilNaduBounds,  // Bias results towards Tamil Nadu
     strictBounds: true,       // Ensures results are strictly within the bounds
     componentRestrictions: { country: 'IN' }
-  }
  });
   
  google.maps.event.addListener(autocomplete_drop, 'place_changed', function () {
