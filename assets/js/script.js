@@ -671,7 +671,7 @@ function highlightItem(items, index) {
 function initAutocomplete() {
  var autocomplete;
  const tamilNaduBounds = new google.maps.LatLngBounds(
-    new google.maps.LatLng(8.0749, 77.0782), // Southwest corner of Tamil Nadu
+    new google.maps.LatLng(14.807135, 80.338414), // Southwest corner of Tamil Nadu
     new google.maps.LatLng(13.0839, 80.3302)  // Northeast corner of Tamil Nadu
 );
 
