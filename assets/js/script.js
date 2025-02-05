@@ -189,17 +189,17 @@ function validateDropPoint(){
     const dropInput = document.getElementById("drop-point");
     const currentValidityMessage = dropInput.validationMessage;
     console.log(currentValidityMessage);
-    if(roundTripValue!="Yes" && distance < 50){
-        if(currentValidityMessage!="Single trip must be at least 50 km"){
-            dropInput.setCustomValidity("Single trip must be at least 50 km");
+    if(roundTripValue!="Yes" && distance < 40){
+        if(currentValidityMessage!="Single trip must be at least 40 km"){
+            dropInput.setCustomValidity("Single trip must be at least 40 km");
             dropInput.reportValidity();
             document.getElementById("appr-fare").classList.add("hidden");
         }
         return false;
     }
-    if(roundTripValue=="Yes" && distance < 50){
-        if(currentValidityMessage!="Round trip must be at least 100 km"){
-            dropInput.setCustomValidity("Round trip must be at least 100 km");
+    if(roundTripValue=="Yes" && distance < 40){
+        if(currentValidityMessage!="Round trip must be at least 80 km"){
+            dropInput.setCustomValidity("Round trip must be at least 80 km");
             dropInput.reportValidity();
             document.getElementById("appr-fare").classList.add("hidden");
         }
